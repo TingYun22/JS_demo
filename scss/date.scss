@@ -1,0 +1,66 @@
+@import './style.scss';
+body{
+    font-family: 'Noto Sans TC', sans-serif;
+    @include chartWidth();
+}
+h2{
+    color: red;
+}
+.timeToGroup,.timeGetGroup,.timeSetGroup{
+    color: $gray600Color;
+    width: 68%;
+}
+.timeGetGroup{
+    .yyyymmdd{
+        display: flex;
+        align-items: center;
+
+        >div{
+            width: 100%;
+            margin: 0 $gap;
+            &:first-child{
+                margin-left:0 ;
+            }
+            &:last-child{
+                margin-right:0 ;
+            }
+        }
+    }
+}
+.time{
+    font-family: 'Jost', sans-serif;
+    border: 1px solid $gray200Color;
+    border-radius: $gap;
+    margin: calc($gap/2) 0;
+    
+
+    >div{
+        padding: calc($gap/2) $gap;
+        &.convert{
+            color:$blackColor;
+        }
+    }
+
+    .title{
+        font-family: 'Noto Sans TC', sans-serif;
+        font-weight: 500;
+        border-radius: 0 0 $gap $gap;
+        // border: 2px solid $whiteColor;
+        border-top: 0;
+        background-color: $gray150Color;
+        color: $whiteColor;
+        display: none;
+        // white-space:nowrap;
+        @include CODEchartWidth();
+
+        span{
+            color: $lightYellowColor;
+            @include CODEchartWidth();
+            &.convert{
+                color:$gray800Color;
+                @include CODEchartWidth();
+            }
+        }
+        
+    }
+}
