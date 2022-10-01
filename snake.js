@@ -1,16 +1,17 @@
-// square size
+// unit size of the background
 let snakeCount=20;
 let canvas=document.querySelector('#board');
 canvas.height=Math.pow(snakeCount,2);
 canvas.width=Math.pow(snakeCount,2);
-let ctx=canvas.getContext('2d');
+const ctx=canvas.getContext('2d');
 
-
+// snakeBody
+let snakeSize=canvas.width / snakeCount -2;
 const snakeParts=[];
 let tailLength=2;
 
-let snakeSize=canvas.width / snakeCount -2;
 let speed=7;
+
 // snake position
 let headX=Math.floor(Math.random()*snakeCount);
 let headY=Math.floor(Math.random()*snakeCount);
@@ -18,10 +19,14 @@ let headY=Math.floor(Math.random()*snakeCount);
 let xVelocity=0;
 let yVelocity=0;
 
+// food position
 let appleX=Math.floor(Math.random()*snakeCount);
 let appleY=Math.floor(Math.random()*snakeCount);
 
 let score=0;
+
+const newDiv=document.createElement('div');
+const divText=document.createTextNode('RESTART');
 
 
 function drawGame(){
@@ -42,10 +47,11 @@ function drawGame(){
 }
 function isGameOver(){
     let gameOver=false;
+    // init
     if(xVelocity===0 && yVelocity===0){
         return false;
     }
-
+    // walls
     if(headX < 0){
         gameOver=true;
     }else if(headX === snakeCount){
@@ -55,6 +61,7 @@ function isGameOver(){
     }else if(headY === snakeCount){
         gameOver=true;
     }
+    // eat myself
     for(let i =0; i<snakeParts.length;i++){
         let partX=snakeParts[i][0];
         let partY=snakeParts[i][1];
@@ -74,10 +81,22 @@ function isGameOver(){
         gradient.addColorStop('1.0','red');
         ctx.fillStyle=gradient;
 
-        ctx.fillText('Game Over!',canvas.width / 6 , canvas.height / 2)
+        ctx.fillText('Game Over!',canvas.width / 6 , canvas.height / 2);
+        
+        newDiv.appendChild(divText);
+        document.body.insertBefore(newDiv,canvas);
+        newDiv.className='restart';
+        newDiv.style.position='absolute';
+        newDiv.style.zIndex='3';
+        newDiv.addEventListener('click',restartGame)
+        
     }
 
     return gameOver;
+}
+
+function restartGame(){
+    location.reload();
 }
 
 function drawScore(){
@@ -87,11 +106,13 @@ function drawScore(){
 }
 
 function drawSnake(){
-    ctx.fillStyle='blue';
+    ctx.fillStyle='greenyellow';
     for(let i = 0 ; i < snakeParts.length ; i++){
         let partX=snakeParts[i][0];
         let partY=snakeParts[i][1];
+                
         ctx.fillRect(partX * snakeCount, partY * snakeCount, snakeSize,snakeSize);
+       
     }
     snakeParts.push([headX, headY]);
     while(snakeParts.length > tailLength){
@@ -106,7 +127,6 @@ function changeSnakePosition(){
     headX = headX + xVelocity;
     headY = headY + yVelocity;
 }
-
 
 
 function clearScreen(){
@@ -128,7 +148,6 @@ function cheackAppleCollection(){
         if(speed < 16){
             speed++;
         }
-        
     }
     
 }
@@ -136,21 +155,16 @@ function cheackAppleCollection(){
 document.body.addEventListener('keydown',keyDown);
 
 function keyDown(e){
-    // console.log('key down');
     if(e.keyCode==38){
-        if(yVelocity==1){
-            return
-        }
+        if(yVelocity==1) return
         yVelocity=-1;
         xVelocity=0;
     }else if(e.keyCode==40){
         if(yVelocity==-1) return
-
         yVelocity=1;
         xVelocity=0;
     }else if(e.keyCode==37){
         if(xVelocity==1) return
-    
         yVelocity=0;
         xVelocity=-1;
     }else if(e.keyCode==39){

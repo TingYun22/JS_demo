@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../scss/style.scss","../scss/snake.scss"],"names":[],"mappings":"AACQ;ACAR;EACI,WDgBK;ECfL;EACA;;;AAGJ;EACI;EACA,WDWM;ECVN;;AACA;EACI;EACA","file":"snake.css"}
+{"version":3,"sourceRoot":"","sources":["../scss/style.scss","../scss/snake.scss"],"names":[],"mappings":"AACQ;ACAR;EACI,WDgBK;ECfL;EACA;;;AAEJ;EACI;EACA,WDYM;ECXN;EACA,ODmBW;EAwBX;EACA;;AC1CA;EACI;EACA;;;AAGR;EACI;;;AAEJ;EACI;EACA;EACA;EACA,WDTK;ECUL;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA","file":"snake.css"}

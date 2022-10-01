@@ -8,11 +8,34 @@ body {
 p {
   margin: 0;
   font-size: 0.75rem;
-  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  color: #999999;
+  letter-spacing: 0.18px;
+  text-indent: 0.18px;
 }
 p a {
   color: orchid;
   text-decoration: none;
+}
+
+#board {
+  position: relative;
+}
+
+.restart {
+  cursor: pointer;
+  top: 58%;
+  left: 45%;
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 0.12rem;
+  text-indent: 0.12rem;
+  color: transparent;
+  background: linear-gradient(45deg, rgb(217, 109, 38) 0%, rgb(105, 229, 149) 55%, rgb(36, 109, 137) 85%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 0.5px white;
 }
 
 /*# sourceMappingURL=snake.css.map */
