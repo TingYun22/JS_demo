@@ -6,24 +6,47 @@ body{
 h2{
     color: red;
 }
+.text{
+    color: $blackColor;
+    margin: 0;
+    height: 50px;
+    // text-align: center;
+    line-height: 50px;
+    font-size: 50px;
+    font-family: 'Jost', sans-serif;
+}
 .timeToGroup,.timeGetGroup,.timeSetGroup{
     color: $gray600Color;
-    width: 68%;
-}
-.timeGetGroup{
+    width: 100%;
+    @media screen and(max-width:1000px) {
+        max-width:1000px ;
+    }
+
     .yyyymmdd{
         display: flex;
         align-items: center;
+        @media screen and(max-width:1000px) {
+            flex-wrap: wrap;
+            .time{
+                margin:calc($gap/4) 0;
+            }
+            p{
+                display: none;
+            }
+        }
 
         >div{
             width: 100%;
-            margin: 0 $gap;
+            margin: calc($gap/4) $gap;
             &:first-child{
                 margin-left:0 ;
             }
             &:last-child{
                 margin-right:0 ;
             }
+        }
+        p{
+            margin: 0;
         }
     }
 }
@@ -32,13 +55,14 @@ h2{
     border: 1px solid $gray200Color;
     border-radius: $gap;
     margin: calc($gap/2) 0;
-    
+    &.convert{
+        color:$blackColor;
+        border-color:$gray400Color ;
+    }
 
     >div{
         padding: calc($gap/2) $gap;
-        &.convert{
-            color:$blackColor;
-        }
+        
     }
 
     .title{
@@ -50,7 +74,7 @@ h2{
         background-color: $gray150Color;
         color: $whiteColor;
         display: none;
-        // white-space:nowrap;
+        white-space:nowrap;
         @include CODEchartWidth();
 
         span{
@@ -63,4 +87,8 @@ h2{
         }
         
     }
+}
+
+.show{
+    // display: none;
 }

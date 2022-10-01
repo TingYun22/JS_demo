@@ -1,5 +1,8 @@
+const countdownInput=document.querySelector('#countdown')
+const showText=document.querySelector('.text')
 let today = new Date();
-for (let i = 0; i < 25; i++) {
+
+for (let i = 0; i < 23; i++) {
     let time_ = document.querySelector(`.time_${i}`);
 
     switch (i) {
@@ -27,12 +30,12 @@ for (let i = 0; i < 25; i++) {
             <span class="convert">)</span>.<span>toISOString</span>()`;
             break;
         case 5:
-            time_.innerHTML = today.toLocaleTimeString();
-            time_.nextElementSibling.innerHTML =`new Date().<span>toLocaleTimeString</span>()`;
-            break;
-        case 6:
             time_.innerHTML = today.toLocaleDateString();
             time_.nextElementSibling.innerHTML =`new Date().<span>toLocaleDateString</span>()`;
+            break;
+        case 6:
+            time_.innerHTML = today.toLocaleTimeString();
+            time_.nextElementSibling.innerHTML =`new Date().<span>toLocaleTimeString</span>()`;
             break;
         case 7:
             time_.innerHTML = today.toLocaleString();
@@ -108,3 +111,35 @@ function clickShow(e) {
         e.target.nextElementSibling.style.display = "none";
     }, 10000);
 }
+
+countdownInput.addEventListener('keypress',function(e){
+    if(countdownInput.value.length>3){
+        e.preventDefault();
+    }
+})
+// countdownInput.addEventListener('input',inputText)
+// countdownInput.addEventListener('change',inputText)
+
+function inputText(e){
+    showText.innerHTML=''
+    if(e.target.value.length<3){
+        if(parseInt(e.target.value)<60){
+            showText.innerHTML=countdownInput.value
+        }else{
+            return
+        }
+    }else{
+        // return
+        e.preventDefault();
+    }
+    
+    // if(e.target.value.trim().length<3){
+    //      if(e.target.value.trim()!=''){
+    //         showText.innerHTML=countdownInput.value
+    //     }
+    // }else{
+    //     e.preventDefault();
+    // }
+    
+}
+
