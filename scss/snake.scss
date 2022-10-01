@@ -1,0 +1,16 @@
+@import './style.scss';
+body{
+    font-size: $word14;
+    text-align: center;
+    margin: 0 auto;
+    
+}
+p{
+    margin: 0;
+    font-size: $notes12;;
+    padding-bottom: .5rem;
+    a{
+        color: orchid;
+        text-decoration: none;
+    }
+}
