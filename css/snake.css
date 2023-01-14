@@ -5,6 +5,10 @@ body {
   margin: 0 auto;
 }
 
+.snakeGame {
+  position: relative;
+}
+
 p {
   margin: 0;
   font-size: 0.75rem;

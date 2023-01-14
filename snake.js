@@ -84,9 +84,11 @@ function isGameOver(){
         ctx.fillText('Game Over!',canvas.width / 6 , canvas.height / 2);
         
         newDiv.appendChild(divText);
-        document.body.insertBefore(newDiv,canvas);
+        document.querySelector("#snakeGame").insertBefore(newDiv,canvas);
         newDiv.className='restart';
         newDiv.style.position='absolute';
+        newDiv.style.top="350px";
+        newDiv.style.left="calc(calc(100% / 2) - 50px)";
         newDiv.style.zIndex='3';
         newDiv.addEventListener('click',restartGame)
         
